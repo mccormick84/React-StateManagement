@@ -1,11 +1,10 @@
 import React from 'react';
 import {SafeAreaView, View, Text, Button, StyleSheet} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {RootState} from '../slices';
 import {authorize, logout} from '../slices/auth';
 
 function AuthStatus() {
-  const user = useSelector((state: RootState) => state.auth.user);
+  const user = useSelector(state => state.auth.user);
 
   return (
     <View style={styles.status}>
