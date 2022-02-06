@@ -1,9 +1,4 @@
-import {
-  createAsyncThunk,
-  createSlice,
-  PayloadAction,
-  SerializedError,
-} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {getPosts} from '../api/getPosts';
 import {Post} from '../api/types';
 
@@ -46,6 +41,25 @@ const postsSlice = createSlice({
       state.posts.data = action.payload;
       state.posts.loading = false;
     },
+    // [fetchPosts.rejected.type]: (
+    //   state,
+    //   action: PayloadAction<
+    //     undefined,
+    //     string,
+    //     {
+    //       arg: void;
+    //       requestId: string;
+    //       rejectedWithValue: boolean;
+    //       requestStatus: 'rejected';
+    //       aborted: boolean;
+    //       condition: boolean;
+    //     },
+    //     SerializedError
+    //   >,
+    // ) => {
+    //   // state.posts.error = action.error;
+    //   state.posts.loading = false;
+    // },
     [fetchPosts.rejected.type]: (
       state,
       action: ReturnType<typeof fetchPosts.rejected>,
